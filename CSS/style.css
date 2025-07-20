@@ -119,25 +119,30 @@ header .container .nav nav ul li a {
   font-weight: 500;
   position: relative;
   transition: all 0.3s linear;
+  text-decoration: none;
 }
-header .container .nav nav ul li a::after{
-content: '';
-width: 0%;
-height: 2px;
-color: var(--secondry-color);
-position: absolute;
-left: 50%;
-bottom: 0;
-padding-bottom: 8px;
-transition: all 0.5s ease;
-transform: translateX(-50%);
+
+header .container .nav nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background-color: var(--secondry-color); 
+  transition: all 0.3s ease;
+}
+
+header .container .nav nav ul li a:hover {
+  color: var(--secondry-color);
+}
+
+header .container .nav nav ul li a:hover::after {
+  width: 100%;
+}
 
 
-}
-header .container .nav nav ul li a:hover{
-      color: var(--secondry-color);
-  transition: 0.3s ease;
-}
 header .container .nav nav ul li a:hover::after{
 width: 100%;
 }
@@ -147,10 +152,17 @@ header .nav .login .btn {
   padding: 17px 43px;
   color: var(--secondry-color);
   background-color: white;
-  border:2px solid var(--secondry-color);
+  border: 2px solid var(--secondry-color);
   font-weight: 800;
-  font-style: bold;
   border-radius: 38px;
+  transition: all 0.3s ease; 
+  text-align: center;
+}
+
+header .nav .login .btn:hover {
+  background-color: var(--secondry-color);
+  color: white;
+  cursor: pointer;
 }
 /* End header */
 /* Start hero */
@@ -181,7 +193,7 @@ width: 214px;
 height: 90px;
 border-radius: 54px;
 rotate: -11.46deg;
-padding: 10px 40px;
+padding: 7px 40px;
 font-size: 58px;
 font-weight: 700;
 }
@@ -244,8 +256,9 @@ position: absolute;
   width: 237px;
   height: 76px;
   right: -20px;
-  bottom: 0;
+  bottom: 10px;
   position: absolute;
+
 }
 .hero .container .right_img .name_img {
       width: 292.62px;
@@ -273,7 +286,7 @@ position: absolute;
   align-items: center;
   flex-direction: column;
   gap: 18px;
-   box-shadow: 0 0px 25px #e4e4e4;
+   box-shadow: 0 0px 10px #e4e4e4;
 }
 
 .quality .container .card img{
@@ -290,12 +303,20 @@ position: absolute;
         color: #666666;
     font-size: 20px;
     font-weight: 500;
+    text-align: center;
 }
-.quality .container .card a{
-            color: var(--primary-color);
+.quality .container .card a {
+    color: var(--primary-color);
     font-size: 20px;
     font-weight: 700;
-    font-style: bold;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* Hover effect */
+.quality .container .card a:hover {
+    color: var(--secondry-color); 
+   
 }
 
 /* End quality food */
@@ -362,6 +383,9 @@ font-style: 500px;
 }
 /* End choose */
 /* Start best seller */
+.Best-Seller {
+  margin-top: 40px;
+}
 .Best-Seller-content h2 {
     font-weight: 700;
     font-style: Bold;
@@ -370,6 +394,7 @@ font-style: 500px;
     line-height: 120%;
     letter-spacing: 0%;
     text-align: center;
+    margin-bottom: 20px;
 
 }
 
@@ -381,6 +406,7 @@ font-style: 500px;
     line-height: 120%;
     letter-spacing: 0%;
     text-align: center;
+     margin-bottom: 40px;
 }
 
 
@@ -397,7 +423,7 @@ font-style: 500px;
 
 .breakfast-card {
     background: #ffffff;
-    border-radius: 18px;
+   
     overflow: hidden;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -428,8 +454,10 @@ font-style: 500px;
 }
 
 .title-and-button h3 {
-    margin: 0;
+    margin-top: 30px;
+    margin-left: 9px;
     font-size: 20px;
+
 }
 
 .breakfast-card p {
@@ -447,6 +475,7 @@ font-style: 500px;
     font-weight: 500;
     letter-spacing: 0%;
     cursor: pointer;
+     margin-top: 30px;
 }
 
 .breakfast-card.fixed-layout {
@@ -454,6 +483,29 @@ font-style: 500px;
     width: 417px;
     height: 486px;
 }
+.cards span {
+
+
+font-size: 25px;
+
+}
+.price-with-stars {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 170px; 
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 9px;
+}
+
+.price-with-stars .stars {
+  width: 100px;
+  height: 20px;
+  object-fit: contain;
+}
+
 
 /* End best seller */
 
@@ -565,85 +617,81 @@ line-height: 130%;
 
 /* ---------- Footer Base ---------- */
 .footer {
-    width: 1440;
-    height: 617;
-    top: 3873px;
-    gap: 64px;
-    background: #FFFFFF;
-    padding: 64px 80px;
-    line-height: 1.6;
+  width: 1440px; /* px unit added */
+  height: 617px;
+  background: #ffffff;
+  padding: 64px 80px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
-
 
 /* Newsletter Section */
 .newsletter-section {
-    width: 524;
-    height: 60;
-    gap: 8px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    background: #FFFFFF;
-    padding: 30px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background: #ffffff;
+  padding: 30px;
+  gap: 20px;
 }
 
 .newsletter-left {
-    flex: 1 1 50%;
+  flex: 1 1 50%;
+  min-width: 250px;
 }
 
 .newsletter-title {
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 28px;
-    line-height: 28px;
-    letter-spacing: 0%;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 28px;
+  margin: 0;
 }
 
 .newsletter-title span {
-    color: var(--secondry-color);
+  color: var(--secondry-color);
 }
 
 .newsletter-description {
-
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0%;
-    color: #5C5C5C
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #5c5c5c;
+  margin-top: 10px;
 }
 
 .subscription-form {
-    flex: 1 1 40%;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    flex-wrap: wrap;
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-width: 250px;
 }
 
 .email-input {
-    width: 320;
-    height: 44;
-    gap: 16px;
-    opacity: 1;
-    border-radius: 8px;
-    border-width: 1px;
-    border-color: olid #D6D6D6;
-    padding: 12px;
+  width: 320px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid #d6d6d6;
+  padding: 12px;
+  font-size: 14px;
 }
 
 .subscribe-btn {
-    padding: 10px 18px;
-    border: none;
-    background-color: var(--secondry-color);
-    color: #FDFDFD;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
+  padding: 10px 18px;
+  border: none;
+  background-color: var(--secondry-color);
+  color: #fdfdfd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .subscribe-btn:hover {
-    background-color: #e64a19;
+  background-color: #e64a19;
 }
 
 /* Footer Links Section */
@@ -658,6 +706,7 @@ line-height: 130%;
     flex: 1 1 180px;
     margin: 10px;
     min-width: 150px;
+
 }
 
 .footer-column h3 {
@@ -679,6 +728,7 @@ line-height: 130%;
     gap: 8px;
     opacity: 1;
     border-radius: 4px;
+     margin-bottom: 12px;
 
 }
 
@@ -689,6 +739,7 @@ line-height: 130%;
     font-size: 16px;
     line-height: 120%;
     letter-spacing: 0%;
+    
 }
 
 .new-badge {
@@ -705,35 +756,27 @@ line-height: 130%;
 
 /*  Footer Bottom */
 .footer-bottom {
-    border-top: 1px solid #444;
-    padding-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;           
+  flex-wrap: wrap;
 }
 
 .bottom-links {
-    width: 182;
-    height: 16;
-    gap: 32px;
-    opacity: 1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  gap: 20px;                    
 }
 
-.footer-bottom a {
-    color: #5C5F66;
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 16px;
-    line-height: 120%;
-    letter-spacing: 0%;
-    border-radius: 4px;
+.bottom-links a {
+  text-decoration: none;
+  color: #444;
 }
+.bottom-links a:hover {
+  text-decoration: underline;
+}
+
 
 
 
@@ -793,6 +836,8 @@ line-height: 130%;
   .footer-bottom {
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    gap: 10px;
   }
 
   header .container,
@@ -801,6 +846,7 @@ line-height: 130%;
   .feedback-section {
     padding: 0 20px;
   }
+  
 
   .hero .container .left_text {
     align-items: center;
